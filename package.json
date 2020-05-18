@@ -2,12 +2,9 @@
   "name": "circuit_breaker",
   "version": "1.0.0",
   "main": "circuit-breaker.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Abhishek Singh",
   "license": "ISC",
-  "description": "",
+  "description": "Circuit Breaker pattern",
   "dependencies": {
     "axios": "0.19.2"
   }

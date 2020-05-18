@@ -6,11 +6,11 @@ class CircuitBreaker {
         this.nextTry = 30;
         this.cooldownPeriod = 30; // sec :: wait this time to make next request
     }
-    async callService(reqOptions) {
+    async callService(reqOptions, callback) {
         // Unique endpoint
         const endpoint = `${reqOptions.method}:${reqOptions.url}`;
         // Check if request can go through
-        if (!this.canRequest(endpoint)) return false;
+        if (!this.canRequest(endpoint)) return callback();
         // Finally pass request
         try {
             console.log("[CircuitBreaker] Making request....");
@@ -21,7 +21,7 @@ class CircuitBreaker {
         } catch (err) {
             console.log("[CircuitBreaker] Error in callService", err.message);
             this.onFailure(endpoint); // oh no!
-            return false;
+            // return callback();
         }
     }
     canRequest(endpoint) {

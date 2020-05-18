@@ -16,5 +16,5 @@ http.createServer((req, res) => {
     console.log("Sending advice from external service... ", advice);
     res.end(JSON.stringify(advice));
 }).listen(3001, () => {
-    console.log("Server is listening....");
+    console.log("Server is listening....", 3001);
 });
